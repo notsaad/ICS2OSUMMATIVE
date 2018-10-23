@@ -21,3 +21,10 @@ Red| |Flowers|Soccer|Tinkerbell|
 Teal| | |Swimming|Incredibles|
 Bright Colors| | |Basketball| |
 | | | |Tennis| |
+
+color palette:
+#9ED6D4
+#FFC156
+#OB3954
+#087E8B
+#FF5A5f
