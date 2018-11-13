@@ -1,0 +1,86 @@
+//checks what scene it currently is
+var currentScene = 1;
+
+//title screen
+  var drawScene1 = function() {
+    background(11, 57, 84);
+    textSize(48);
+    fill(255, 90, 79);
+    text("platformer", 184, 100);
+    noStroke();
+    rect(50, 250, 200, 60);
+    rect(350, 250, 200, 60);
+    fill(11, 57, 84);
+    textSize(31);
+    text("play game", 73, 290);
+    text("options", 399, 290);
+    currentScene = 1;
+  };
+  
+    drawScene1();
+    
+//character selection screen
+  var drawScene2 = function() {
+    background(11, 57, 84);
+    textSize(48);
+    fill(255, 90, 79);
+    text("character select", 130, 75);
+    fill(255,193,86);
+    textSize(30);
+    text("harry potter", 30, 350);
+    text("tinkerbell", 230, 350);
+    text("screen slaver", 400, 350);
+    fill(255, 90, 79);
+    noStroke();
+    rect(39, 96, 142, 217);
+    rect(221, 96, 142, 217);
+    rect(417, 96, 142, 217);
+    fill(11, 57, 84);
+    rect(41, 98, 138, 213);
+    rect(223, 98, 138, 213);
+    rect(419, 98, 138, 213);
+    currentScene = 2;
+  };
+
+//options screen
+  var drawScene3 = function() {
+    background(11, 57, 84);
+    fill(255, 90, 79);
+    textSize(40);
+    text("options", 230, 50);
+    currentScene = 3;
+  };
+
+  var drawScene4 = function() {
+    background(0, 0, 0);
+    fill(255, 255, 255);
+    text("scene 4", 200, 200);
+    currentScene = 4;
+  };
+
+  var drawScene5 = function() {
+    background(0, 0, 0);
+    fill(255, 255, 255);
+    text("scene 5", 200, 200);
+    currentScene = 5;
+  };
+
+//changes scenes based on mouse clicks and where the mouse clicks
+mouseClicked = function() {
+  if (currentScene === 5 ) {
+    drawScene1();
+  } else if (currentScene === 1 && mouseX > 50 && mouseX < 250 && mouseY > 250 && mouseY < 310 && mouseIsPressed) {
+    drawScene2();
+  } else if (currentScene === 1 && mouseX > 350 && mouseX < 550 && mouseY > 250 && mouseY < 310 && mouseIsPressed) {
+    drawScene3();
+  } else if (currentScene === 2 && mouseX > 39 && mouseX < 181 && mouseY > 96 && mouseY < 313 && mouseIsPressed) {
+    drawScene4();
+  } else if (currentScene === 2 && mouseX > 221 && mouseX < 363 && mouseY > 96 && mouseY < 313 && mouseIsPressed) {
+    drawScene4();
+  } else if (currentScene === 2 && mouseX > 417 && mouseX < 559 && mouseY > 96 && mouseY < 313 && mouseIsPressed) {
+    drawScene4();
+  } else if (currentScene === 3 && mouseIsPressed) {
+    drawScene1();
+  } else if (currentScene === 4 && mouseIsPressed) {
+    drawScene5();
+  }};
