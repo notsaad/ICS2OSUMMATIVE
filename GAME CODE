@@ -1,6 +1,10 @@
 //checks what scene it currently is
 var currentScene = 1;
 
+var coin = {
+    
+};
+
 //title screen
   var drawScene1 = function() {
     background(11, 57, 84);
@@ -17,7 +21,7 @@ var currentScene = 1;
     currentScene = 1;
   };
   
-    drawScene1();
+    //drawScene1();
     
 //character selection screen
   var drawScene2 = function() {
@@ -42,15 +46,27 @@ var currentScene = 1;
     currentScene = 2;
   };
 
+    //drawScene2();
+
 //options screen
   var drawScene3 = function() {
     background(11, 57, 84);
     fill(255, 90, 79);
     textSize(40);
     text("options", 230, 50);
+    fill(255, 90, 79);
+    noStroke();
+    rect(19, 25, 108, 49);
+    fill(11, 57, 84);
+    textSize(30);
+    text("back", 38, 57);
     currentScene = 3;
   };
+  
+  //drawScene3();
 
+
+// first level of the game
   var drawScene4 = function() {
     background(0, 0, 0);
     fill(255, 255, 255);
@@ -58,12 +74,23 @@ var currentScene = 1;
     currentScene = 4;
   };
 
-  var drawScene5 = function() {
-    background(0, 0, 0);
-    fill(255, 255, 255);
-    text("scene 5", 200, 200);
+ var drawScene5 = function() {
+    background(11, 57, 84);
+    fill(255, 90, 79);
+    textSize(48);
+    text("credits", 215, 52);
+    for (var a = 400; a !== 80; a--) {
+        fill(255, 193, 86);
+        text("Saad Mazhar", 180, a);
+        text("Yunus Abu-Oshaibah", 120, a + 100);
+        text("Max Huisman", 180, a + 200);
+        text("Riley", 190, a + 300);
+        text("Sadie", 190, a + 400);
+   }
     currentScene = 5;
   };
+
+drawScene5();
 
 //changes scenes based on mouse clicks and where the mouse clicks
 mouseClicked = function() {
@@ -79,8 +106,9 @@ mouseClicked = function() {
     drawScene4();
   } else if (currentScene === 2 && mouseX > 417 && mouseX < 559 && mouseY > 96 && mouseY < 313 && mouseIsPressed) {
     drawScene4();
-  } else if (currentScene === 3 && mouseIsPressed) {
+  } else if (currentScene === 3 && mouseX > 19 && mouseX < 127 && mouseY > 25 && mouseY < 74 && mouseIsPressed) {
     drawScene1();
   } else if (currentScene === 4 && mouseIsPressed) {
     drawScene5();
   }};
+
