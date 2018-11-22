@@ -1,8 +1,51 @@
+size(600, 400);
+
 //checks what scene it currently is
 var currentScene = 1;
 
-var coin = {
-    
+//character properties
+var Character = function(x, y) {
+    this.x = x;
+    this.y = y;
+		fill(255, 0, 0);
+		this.height = 55;
+		this.width = 25;
+    this.coins = 0;
+};
+
+Character.prototype.draw = function() {
+    this.y = constrain(this.y, 0, height - 40);
+    this.x = constrain(this.x, 0, width - 40);
+    rect(this.x, this.y, this.width, this.height);
+};
+
+var character = new Character(200, 300);
+
+//character movement
+Character.prototype.jump  = function() {
+	this.y -= 3;
+};
+
+Character.prototype.fall  = function() {
+	this.y += 3;
+};
+
+Character.prototype.right  = function() {
+	this.x += 3;
+};
+
+Character.prototype.left  = function() {
+	this.x -= 3;
+};
+
+//life counter
+
+//score counter
+
+//coin object
+var Coin = function(x, y) {
+    this.x = x;
+    this.y = y;
 };
 
 //title screen
@@ -21,7 +64,7 @@ var coin = {
     currentScene = 1;
   };
   
-    //drawScene1();
+    drawScene1();
     
 //character selection screen
   var drawScene2 = function() {
@@ -79,7 +122,7 @@ var coin = {
     fill(255, 90, 79);
     textSize(48);
     text("credits", 215, 52);
-    for (var a = 400; a !== 80; a--) {
+    for (var a = 400; a < 80; a--) {
         fill(255, 193, 86);
         text("Saad Mazhar", 180, a);
         text("Yunus Abu-Oshaibah", 120, a + 100);
@@ -90,25 +133,38 @@ var coin = {
     currentScene = 5;
   };
 
-drawScene5();
+//drawScene5();
 
+//character movement
+keyPressed =  function() {
+	 if (keyIsPressed && keyCode === 38) {
+        character.hop();
+		 		setTimeout(character.fall, 1000);
+    } 
+    if (keyIsPressed && keyCode === 39){
+        character.right();
+    }
+    if (keyIsPressed && keyCode === 37){
+        character.left();
+		}
+};
+	
 //changes scenes based on mouse clicks and where the mouse clicks
 mouseClicked = function() {
   if (currentScene === 5 ) {
     drawScene1();
-  } else if (currentScene === 1 && mouseX > 50 && mouseX < 250 && mouseY > 250 && mouseY < 310 && mouseIsPressed) {
+  } else if (currentScene === 1 && mouseX > 50 && mouseX < 250 && mouseY > 250 && mouseY < 310 && mouseClicked) {
     drawScene2();
-  } else if (currentScene === 1 && mouseX > 350 && mouseX < 550 && mouseY > 250 && mouseY < 310 && mouseIsPressed) {
+  } else if (currentScene === 1 && mouseX > 350 && mouseX < 550 && mouseY > 250 && mouseY < 310 && mouseClicked) {
     drawScene3();
-  } else if (currentScene === 2 && mouseX > 39 && mouseX < 181 && mouseY > 96 && mouseY < 313 && mouseIsPressed) {
+  } else if (currentScene === 2 && mouseX > 39 && mouseX < 181 && mouseY > 96 && mouseY < 313 && mouseClicked) {
     drawScene4();
-  } else if (currentScene === 2 && mouseX > 221 && mouseX < 363 && mouseY > 96 && mouseY < 313 && mouseIsPressed) {
+  } else if (currentScene === 2 && mouseX > 221 && mouseX < 363 && mouseY > 96 && mouseY < 313 && mouseClicked) {
     drawScene4();
-  } else if (currentScene === 2 && mouseX > 417 && mouseX < 559 && mouseY > 96 && mouseY < 313 && mouseIsPressed) {
+  } else if (currentScene === 2 && mouseX > 417 && mouseX < 559 && mouseY > 96 && mouseY < 313 && mouseClicked) {
     drawScene4();
-  } else if (currentScene === 3 && mouseX > 19 && mouseX < 127 && mouseY > 25 && mouseY < 74 && mouseIsPressed) {
+  } else if (currentScene === 3 && mouseX > 19 && mouseX < 127 && mouseY > 25 && mouseY < 74 && mouseClicked) {
     drawScene1();
-  } else if (currentScene === 4 && mouseIsPressed) {
+  } else if (currentScene === 4 && mouseClicked) {
     drawScene5();
   }};
-
