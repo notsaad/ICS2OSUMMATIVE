@@ -13,11 +13,22 @@ var Character = function(x, y) {
     this.coins = 0;
 };
 
+//platform properties
+
+var Platform = function(x, y, height, width) {
+	this.x = x;
+	this.y = y;
+	this.height =  height;
+	this.width = width;
+};
+
 Character.prototype.draw = function() {
     this.y = constrain(this.y, 0, height - 40);
     this.x = constrain(this.x, 0, width - 40);
     rect(this.x, this.y, this.width, this.height);
 };
+
+
 
 var character = new Character(200, 300);
 
@@ -111,9 +122,11 @@ var Coin = function(x, y) {
 
 // first level of the game
   var drawScene4 = function() {
-    background(0, 0, 0);
+    background(158, 214, 212);
     fill(255, 255, 255);
     text("scene 4", 200, 200);
+		fill(11, 57, 84);
+		new Platform(10, 10, 100, 40);
     currentScene = 4;
   };
 
@@ -132,6 +145,15 @@ var Coin = function(x, y) {
    }
     currentScene = 5;
   };
+
+	//tutorial
+	//var drawScene 6 = function() {
+		//background(158, 214, 212);
+		//fill(11, 57, 84);
+		//textSize(36);
+		//text("tutorial", 20, 20);
+		//currentScene  = 6;
+	//};
 
 //drawScene5();
 
@@ -167,4 +189,6 @@ mouseClicked = function() {
     drawScene1();
   } else if (currentScene === 4 && mouseClicked) {
     drawScene5();
+		 } else if (currentScene === 5 && mouseClicked) {
+    drawScene6();
   }};
