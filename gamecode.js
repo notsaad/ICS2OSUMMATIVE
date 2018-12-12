@@ -3,61 +3,11 @@ size(600, 400);
 //checks what scene it currently is
 var currentScene = 1;
 
-//character properties
-var Character = function(x, y) {
-    this.x = x;
-    this.y = y;
-		fill(255, 0, 0);
-		this.height = 55;
-		this.width = 25;
-    this.coins = 0;
-};
-
-//platform properties
-
-var Platform = function(x, y, height, width) {
-	this.x = x;
-	this.y = y;
-	this.height =  height;
-	this.width = width;
-};
-
-Character.prototype.draw = function() {
-    this.y = constrain(this.y, 0, height - 40);
-    this.x = constrain(this.x, 0, width - 40);
-    rect(this.x, this.y, this.width, this.height);
-};
-
-
-
-var character = new Character(200, 300);
-
-//character movement
-Character.prototype.jump  = function() {
-	this.y -= 3;
-};
-
-Character.prototype.fall  = function() {
-	this.y += 3;
-};
-
-Character.prototype.right  = function() {
-	this.x += 3;
-};
-
-Character.prototype.left  = function() {
-	this.x -= 3;
-};
-
 //life counter
 
 //score counter
 
 //coin object
-var Coin = function(x, y) {
-    this.x = x;
-    this.y = y;
-};
 
 //title screen
   var drawScene1 = function() {
@@ -158,18 +108,6 @@ var Coin = function(x, y) {
 //drawScene5();
 
 //character movement
-keyPressed =  function() {
-	 if (keyIsPressed && keyCode === 38) {
-        character.hop();
-		 		setTimeout(character.fall, 1000);
-    } 
-    if (keyIsPressed && keyCode === 39){
-        character.right();
-    }
-    if (keyIsPressed && keyCode === 37){
-        character.left();
-		}
-};
 	
 //changes scenes based on mouse clicks and where the mouse clicks
 mouseClicked = function() {
