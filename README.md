@@ -1,5 +1,5 @@
 # ICS2OSUMMATIVE
-my repository for grade 10 computer summative
+my repository for grade 10 computer summative <br>
 excellence -
   wisdom 
   with hard work and dedication comes knowledge
