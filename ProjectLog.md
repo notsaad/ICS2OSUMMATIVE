@@ -26,7 +26,7 @@
 - More Customizability
 
 ## Screenshots
-https://github.com/notsaad/ICS2OSUMMATIVE/blob/master/platformer.PNG
+![platformer](https://github.com/notsaad/ICS2OSUMMATIVE/blob/master/platformer.PNG)
 
 ## Links to Code
 [Platformer Test] (https://notsaad.github.io/platformer-test) <br>
