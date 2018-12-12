@@ -26,3 +26,4 @@ color palette:
 - ![#9ED6D4](https://placehold.it/15/9ed6d4/000000?text=+) `#9ed6d4`, ![#FFC156](https://placehold.it/15/FFC156/000000?text=+) `#FFC156`
 - ![#OB3954](https://placehold.it/15/OB3954/000000?text=+) `#OB3954`, ![#087E8B](https://placehold.it/15/087E8B/000000?text=+) `#087E8B`
 - ![#FF5A5f](https://placehold.it/15/FF5A5f000000?text=+) `#FF5A5f`
+
