@@ -29,5 +29,5 @@
 
 
 ## Links to Code
-[Platformer Test] (https://notsaad.github.io/platformer-test)
+[Platformer Test] (https://notsaad.github.io/platformer-test) <br>
 [Menu Screens] (https://notsaad.github.io/ICS2OSUMMATIVE)
