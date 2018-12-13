@@ -108,6 +108,7 @@ function draw() {
     fill(11, 57, 84);
     textSize(30);
     text("back", 38, 57);
+	  
   } else if(scene4 == true) {
     //game screen
     background(51);
@@ -116,15 +117,16 @@ function draw() {
     person.update();
     person.edges();
     person.display();
+	  
   } else if(scene5 == true) {
     //credits screen
-  	background(11, 57, 84);
+    background(11, 57, 84);
     fill(255, 90, 79);
     textSize(48);
     textAlign(CENTER);
     text("credits", 300, 52);
     fill(255, 193, 86);
-		textSize(40);
+    textSize(40);
     text("Saad Mazhar", 300, 150);
     text("Yunus Abu-Oshaibah", 300, 200);
     text("Max Huisman", 300, 250);
@@ -143,7 +145,7 @@ function mousePressed() {
    		scene1 = false;
   } else if (scene1 == true && mouseX > 350 && mouseX < 550 && mouseY > 250 && mouseY < 310 && mousePressed) {
     	scene3 = true;
-    	scene1 = true;
+    	scene1 = false;
   } else if (scene2 == true && mouseX > 39 && mouseX < 181 && mouseY > 96 && mouseY < 313 && mousePressed) {
     	scene4 = true;
     	scene2 = false;
