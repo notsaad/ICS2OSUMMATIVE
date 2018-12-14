@@ -1,5 +1,5 @@
 function Person() {
-  this.pos = createVector(width/2, height, 20, 50);
+  this.pos = createVector(50, height, 20, 50);
   this.vel = createVector(0*0.95, 0);
   this.acc = createVector(0, 0);
 	
@@ -49,3 +49,20 @@ function Person() {
     }
 	} 
 }
+
+/*class Coin {
+  constructor(pos, basePos, wobble) {
+    this.pos = pos;
+    this.basePos = basePos;
+    this.wobble = wobble;
+  }
+
+  get type() { return "coin"; }
+
+  static create(pos) {
+    let basePos = pos.plus(new Vec(0.2, 0.1));
+    return new Coin(basePos, basePos,
+                    Math.random() * Math.PI * 2);
+  }
+}
+*/
