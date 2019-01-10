@@ -1,12 +1,15 @@
 function setup() {
 	createCanvas(600, 400);
   person = new Person();
+  ground =  new platform(0, 380, 500, 20);
+  coin1 = new coin(550, 350);
   textAlign(CENTER);
 }
 
 //defines the character and the variable to check jumping
 var person;
 var jumping = false;
+var ground;
 
 //checks what scene it currently is
 var scene1 = true;
@@ -14,6 +17,7 @@ var scene2 = false;
 var scene3 = false;
 var scene4 = false;
 var scene5 = false;
+var scene6 = false;
 
 //platform properties
 
@@ -155,17 +159,14 @@ function draw() {
   } else if(scene4 == true) {
     //game screen
     background(11, 57, 84);
+    ground.show();
     textSize(50);
     fill(255, 90, 79);
     text("tutorial", 100, 50);
     textSize(20);
     text("arrow keys to move,\n you can only move \n while jumping, collect \n the coins to move on", 100, 100);
-    fill(255, 240, 93);
-    ellipse(550, 370, 40, 40);
-    fill(0);
-    textSize(12);
-    text("( ͡° ͜ʖ ͡°)", 550, 375);
-    if (scene4 == true && person.pos.x > 530 - 20 && person.pos.x < 570) {
+    coin1.show();
+    if (scene4 == true && person.pos.x > coin1.x - 40 && person.pos.x < coin1.x + 20 && person.pos.y > coin1.y - 20 && person.pos.y < coin1.y + 70) {
 			if (scene4 == true && mouseX > 512  && mouseX < 589 && mouseY > 300 && mouseY < 325){
 				fill(255, 151, 100);
 				rect(512, 300, 75, 25);
@@ -180,10 +181,11 @@ function draw() {
     var gravity = createVector(0, 0.1);
     person.applyForce(gravity);
     person.update();
-    person.edges();
+    person.edges(ground);
     person.display();
-
-  } else if(scene5 == true) {
+  
+    
+  } else if(scene5 == true){
     //credits screen
   	background(11, 57, 84);
     fill(255, 90, 79);
@@ -197,9 +199,33 @@ function draw() {
     text("Max Huisman", 300, 250);
     text("Riley", 300, 300);
     text("Sadie", 300, 350);
-  }
 
-}
+  }  /*else if(scene6 ==  true){
+
+		background(11, 57, 84);
+		fill(255, 240, 93);
+		ellipse(550, 370, 40, 40);
+		fill(0);
+		textSize(12);
+		text("( ͡° ͜ʖ ͡°)", 550, 375);
+		if (scene6 == true && person.pos.x > 530 - 20 && person.pos.x < 570 && person.pos.y > 350 ) {
+			if (scene6 == true && mouseX > 512  && mouseX < 589 && mouseY > 300 && mouseY < 325){
+				fill(255, 151, 100);
+				rect(512, 300, 75, 25);
+			} else if(scene6 == true){
+				fill(255, 90, 79);
+				rect(512, 300, 75, 25);
+			}
+			fill(11, 57, 84);
+			textSize(15);
+			text("next level", 550, 315);
+		}
+		person.applyForce();
+		person.update();
+		person.edges();
+		person.display();
+
+}*/}
 
 //character movement
 
@@ -224,10 +250,12 @@ function mousePressed() {
     	scene1 = true;
     	scene3 = false;
   } else if (scene4 == true && person.pos.x > 530 - 20 && person.pos.x < 570 && mouseX > 512  && mouseX < 587 && mouseY > 300 && mouseY < 325 && mousePressed) {
-    	scene5 = true;
+    	scene6 = true;
     	scene4 = false;
 			person.pos.x = 50;
   } else if (scene5 == true && mousePressed) {
     	scene1 = true;
     	scene5 = false;
+	} else if (scene6  == true && mousePressed) {
   }}
+
