@@ -1,3 +1,4 @@
+//platform object
 function platform (x,y,width,height){
   this.x = x;
   this.y = y;
@@ -11,6 +12,20 @@ this.show = function(){
 }
 }
 
+function lava (x,y,width,height){
+  this.x = x;
+  this.y = y;
+  this.width = width;
+  this.height  =  height;
+
+
+this.show = function(){
+    fill(255, 90, 79);
+  	rect(this.x, this.y, this.width, this.height);
+}
+}
+
+//coin object
 function coin (x,y) {
   this.x = x;
   this.y = y;
