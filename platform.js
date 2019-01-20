@@ -38,4 +38,3 @@ function coin (x,y) {
     text("( ͡° ͜ʖ ͡°)", this.x, this.y + 5);
     }
     }
-
