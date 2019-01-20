@@ -29,12 +29,12 @@ var score = 0;
 var life = 3;
 
 //checks what scene it currently is
-var scene1 = false; //start screen
+var scene1 = true; //start screen
 var scene2 = false;	//character selection screen
 var scene3 = false;	//options screen
 var scene4 = false;	//first game screen
 var scene5 = false;	//game won screen
-var scene6 = true;	//second game screen
+var scene6 = false;	//second game screen
 var scene7 = false;	//credits screen
 var scene8 = false; //game over screen
 
