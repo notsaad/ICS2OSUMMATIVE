@@ -30,7 +30,7 @@ function Person() {
       this.vel.y *= 0;
       this.pos.y = ground.y;
 
-         if(this.pos.y >= ground.x){
+         if(this.pos.y >= ground.y){
 
       		jumping = false;
           this.vel.x = 0;
@@ -46,6 +46,7 @@ function Person() {
         	this.pos.y = height;
         
       if (this.pos.y >= height){
+        	hit = true;
         	jumping = false;
           this.vel.x = 0;
       }
@@ -64,8 +65,8 @@ function Person() {
       this.vel.y *= 0;
       this.pos.y = ground2.y;
 
-         if(this.pos.y >= ground2.x){
-
+         if(this.pos.y >= ground2.y){
+					hit = true
       		jumping = false;
           this.vel.x = 0;
          }
@@ -82,6 +83,7 @@ function Person() {
       if (this.pos.y >= height){
         	jumping = false;
           this.vel.x = 0;
+        	hit = true;
       }
       }
       if (this.pos.x > width + 10) {
@@ -98,10 +100,11 @@ function Person() {
       this.vel.y *= 0;
       this.pos.y = ground3.y;
 
-         if(this.pos.y >= ground3.x){
+         if(this.pos.y >= ground3.y){
 
       		jumping = false;
           this.vel.x = 0;
+          hit = true;
          }
     } 
 
@@ -116,6 +119,7 @@ function Person() {
       if (this.pos.y >= height){
         	jumping = false;
           this.vel.x = 0;
+        	hit = true;
       }
       }
       if (this.pos.x > width + 10) {
@@ -144,6 +148,7 @@ function Person() {
       if (this.pos.y >= height){
         	jumping = false;
           this.vel.x = 0;
+        	hit = true;
       }
       }
       if (this.pos.x > width + 10) {
