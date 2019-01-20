@@ -1,19 +1,27 @@
+//basic setup
 function setup() {
 	createCanvas(600, 400);
   person = new Person();
-  ground =  new platform(0, 380, 600, 20);
-  ground2 = new platform(0, 380, 200, 20);
-  ground3 = new platform(400, 380, 200, 20);
-  platform1 = new platform(300, 300, 140, 20);
-  lava1 = new lava(200, 385, 200, 15);
+  
+  var Platform = [
+  ground =  new platform(0, 380, 600, 20),
+  ground2 = new platform(0, 380, 200, 20),
+  ground3 = new platform(400, 380, 200, 20),
+  platform1 = new platform(300, 300, 140, 20),
+  lava1 = new lava(200, 385, 200, 15),
+  ];
+    
   coin1 = new coin(550, 350);
   coin2 = new coin(550, 350);
+
+  
   textAlign(CENTER);
 }
 
 //defines the character and the variable to check jumping
 var person;
 var jumping = false;
+var hit = false;
 var ground;
 var ground2;
 var ground3;
@@ -21,12 +29,12 @@ var score = 0;
 var life = 3;
 
 //checks what scene it currently is
-var scene1 = true; //start screen
+var scene1 = false; //start screen
 var scene2 = false;	//character selection screen
 var scene3 = false;	//options screen
 var scene4 = false;	//first game screen
 var scene5 = false;	//game won screen
-var scene6 = false;	//second game screen
+var scene6 = true;	//second game screen
 var scene7 = false;	//credits screen
 var scene8 = false; //game over screen
 
@@ -61,9 +69,8 @@ function keyReleased() {
     }
 }
 
-//title screen
-
-function draw() {
+//game screens
+function draw(){
 
   if (scene1 == true) {
     //title screen
@@ -176,6 +183,8 @@ function draw() {
     person.update();
     person.edges(ground);
     person.display();
+    score = 0;
+    life = 3;
   
     
     if(person.pos.x > coin1.x - 40 && person.pos.x < coin1.x + 20 && person.pos.y > coin1.y - 20 && person.pos.y < coin1.y + 20){
@@ -211,7 +220,15 @@ function draw() {
     text("lives: " + life, 555, 25);
     coin2.show();
     var gravity2 = createVector(0, 0.1);
-    person.applyForce(gravity2);
+    
+    if(person.pos.x > platform1.x && person.pos.x < 
+	  platform1.x + platform1.x && person.pos.y ==
+      platform1.y){
+       var rGrav = createVector(0, -0.1);
+      person.applyForce(rGrav);
+       }
+    
+   	person.applyForce(gravity2);
     person.update();
     person.edges2(ground2);
     person.edges3(ground3);
@@ -259,8 +276,9 @@ function draw() {
     fill(11, 57, 84);
     text("retry", 300, 315);
   }
+}
   
-  //changes scenes based on mouse clicks and where the mouse clicks
+//scene changer
 function mousePressed(){
  if (scene1 == true && mouseX > 50 && mouseX < 250 && mouseY > 250 && mouseY < 310 && mousePressed) {
     	scene2 = true;
@@ -291,7 +309,7 @@ function mousePressed(){
 		scene1 = true;
 		scene8 = false;
   }}
-}
+
   
 //character movement
 
